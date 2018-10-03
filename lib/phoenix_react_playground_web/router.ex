@@ -20,7 +20,10 @@ defmodule PhoenixReactPlaygroundWeb.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", PhoenixReactPlaygroundWeb do
-  #   pipe_through :api
-  # end
+   scope "/api", PhoenixReactPlaygroundWeb do
+     pipe_through :api
+     resources "/languages", LanguageController, except: [:new, :edit]
+     get "/languages/1", LanguageController, :show_1
+
+   end
 end
